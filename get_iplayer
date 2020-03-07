@@ -5612,7 +5612,7 @@ sub fetch_episodes_recursive {
 				$last_page =~ s/(^\s+|\s+$)//g;
 				$max_page = $last_page if $last_page > $max_page;
 				$curr_page++;
-				$url = "https://www.bbc.co.uk/iplayer/episodes/$parent_pid?page=$curr_page";
+				$url = $url . ( index( $url, '?')?'?':'&' ) . "page=$curr_page";
 			} while ( $curr_page <= $max_page ) };
 		}
 	}
